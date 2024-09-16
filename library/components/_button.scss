@@ -1,0 +1,11 @@
+@mixin btn(){
+    padding:12px;
+    background-color: transparent;
+}
+@each $key, $val in $colors{
+    .btn-#{$key}{
+        @include btn();
+        border:1px solid $val;
+        color:lighten($val, 5);
+    }
+}

@@ -1,0 +1,208 @@
+@mixin padding-utility($property, $prefix, $values) {
+    @each $size, $size-values in $values {
+      @if $size == 'xs' {
+        @include xs {
+          @each $key, $value in $size-values {
+            .#{$prefix}-#{$size}-#{$key} {
+              #{$property}: #{$value}px;
+            }
+          }
+        }
+      } @else if $size == 'sm' {
+        @include sm {
+          @each $key, $value in $size-values {
+            .#{$prefix}-#{$size}-#{$key} {
+              #{$property}: #{$value}px;
+            }
+          }
+        }
+      } @else if $size == 'md' {
+        @include md {
+          @each $key, $value in $size-values {
+            .#{$prefix}-#{$size}-#{$key} {
+              #{$property}: #{$value}px;
+            }
+          }
+        }
+      } @else if $size == 'lg' {
+        @include lg {
+          @each $key, $value in $size-values {
+            .#{$prefix}-#{$size}-#{$key} {
+              #{$property}: #{$value}px;
+            }
+          }
+        }
+      } @else if $size == 'xl' {
+        @include xl {
+          @each $key, $value in $size-values {
+            .#{$prefix}-#{$size}-#{$key} {
+              #{$property}: #{$value}px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Padding ve Padding yönleri için veri
+  $utilities: (
+    'padding': (
+      'prefix': 'p',
+      'values': (
+        'xs': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'sm': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'md': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'lg': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'xl': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        )
+      )
+    ),
+    'padding-left': (
+      'prefix': 'pl',
+      'values': (
+        'xs': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'sm': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'md': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'lg': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'xl': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        )
+      )
+    ),
+    'padding-right': (
+      'prefix': 'pr',
+      'values': (
+        'xs': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'sm': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'md': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'lg': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'xl': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        )
+      )
+    ),
+    'padding-top': (
+      'prefix': 'pt',
+      'values': (
+        'xs': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'sm': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'md': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'lg': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'xl': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        )
+      )
+    ),
+    'padding-bottom': (
+      'prefix': 'pb',
+      'values': (
+        'xs': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'sm': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'md': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'lg': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        ),
+        'xl': (
+          '32': 32,
+          '24': 24,
+          '48': 48
+        )
+      )
+    ),
+  );
+  
+  // Padding yönleri için CSS sınıflarını oluştur
+  @each $property, $data in $utilities {
+    $prefix: map-get($data, 'prefix');
+    $values: map-get($data, 'values');
+  
+    @include padding-utility($property, $prefix, $values);
+  }
+  

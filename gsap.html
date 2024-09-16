@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP ScrollTrigger Example</title>
+    <style>
+        html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.scroll-container {
+    height: 100vh; /* Parent div'in yüksekliği */
+    position: relative;
+}
+
+.section {
+    height: 33.33vh; /* Her section'ın yüksekliği */
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Başlangıçta resimler görünmüyor */
+}
+
+    </style>
+</head>
+<body>
+    <div class="scroll-container">
+        <div class="section">
+            <img src="./assets/images/66917f970aa31c65959816e9_AID - Desktop website.png" class="image" alt="Image 1">
+        </div>
+        <div class="section">
+            <img src="./assets/images/66980db748d5fb644b66ca8e_SGW Designworks - Mobile website 10.png" class="image" alt="Image 2">
+        </div>
+        <div class="section">
+            <img src="./assets/images/66980db748d5fb644b66ca8e_SGW Designworks - Mobile website 10.png" class="image" alt="Image 3">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+// Her bir section için animasyon tanımlanıyor
+gsap.utils.toArray('.section').forEach((section) => {
+    gsap.fromTo(section.querySelector('.image'),
+        { opacity: 0 },
+        {
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: section,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+                markers: true, // Debug için marker'ları açın
+                pin: true,
+                pinSpacing: false
+            }
+        });
+});
+
+// scroll-container'ı pinleyerek sayfada sabit kalmasını sağlıyoruz
+ScrollTrigger.create({
+    trigger: ".scroll-container",
+    start: "top top",
+    end: "bottom bottom",
+    pin: true,
+    pinSpacing: false
+});
+
+    </script>
+</body>
+</html>
