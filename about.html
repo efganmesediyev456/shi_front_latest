@@ -70,7 +70,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <section class="digital_design_studio">
        <div class="container">
         <div class="title">
-            <h1>Digital design studio with a</h1>
+            <h1>Digital design studio</h1>
             <h2>result-driven approach</h2>
         </div>
         <div class="content">
@@ -213,16 +213,16 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="right_passionate">
                 <h2>We're passionate about creating digital experiences that capture your brand's essence and drive business growth. </h2>
                 <div class="passionate_content">
-                    <p>At SHI studio, creativity and innovation are at our core. We are 
-                        dedicated to offering development and web design services. 
-                        By focusing on quality and teamwork, we collaborate closely 
-                        with clients to build websites that genuinely engage their 
-                        target audience.</p>
-                        <p>At SHI studio, creativity and innovation are at our core. We are 
-                            dedicated to offering development and web design services. 
-                            By focusing on quality and teamwork, we collaborate closely 
-                            with clients to build websites that genuinely engage their 
-                            target audience.</p>
+                    <p>At SHI studio, creativity and innovation are at our core. We are 
+                        dedicated to offering development and web design services. 
+                        By focusing on quality and teamwork, we collaborate closely 
+                        with clients to build websites that genuinely engage their 
+                        target audience.</p>
+                        <p>At SHI studio, creativity and innovation are at our core. We are 
+                            dedicated to offering development and web design services. 
+                            By focusing on quality and teamwork, we collaborate closely 
+                            with clients to build websites that genuinely engage their 
+                            target audience.</p>
 
 
                         <a href="" class="how_can_we_help">How can we help </a>
@@ -238,14 +238,38 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <h1>Visionary leadership driving </h1>
                 <h2>creative innovation forward</h2>
             </div>
-            <div class="visionary_content">
-                <img src="./assets/images/zehra.png" alt="">
-                <div class="visionary_hover">
-                    <div>
-                        <p>Lorem ipsum, Lorem ipsum dolor sit amet. dolor sit amet consectetur adipisicing elit. Natus et dolores laudantium?</p>
+            <div class="visionary_content" style="overflow: hidden;">
 
-                    </div>
-                </div> 
+
+
+                  <svg class="svg">
+                    <clipPath id="my-clip-path"  clipPathUnits="objectBoundingBox"><path  d="M0.635,0 C0.411,0.312,0.118,0.432,0,0.453 C0.496,0.493,0.863,0.853,1,1 C0.629,0.604,0.602,0.168,0.635,0"></path></clipPath>
+                  </svg>
+                  
+                  <div class="clipped">
+                    
+                  </div>
+
+                  
+                 
+
+
+
+
+
+                <!-- <img src="./assets/images/zehra.png" class="clipped-image" alt="">
+                <div class="visionary_hover_animation">
+                    
+                    <svg width="0" height="0">
+                        <defs>
+                            <clipPath id="myClipPath">
+                                <path d="M33.7954 0.5C21.8781 13.7514 6.29958 18.8429 0 19.7323C26.4138 21.422 45.9375 36.7411 53.25 42.9666C33.5064 26.1578 32.0538 7.65188 33.7954 0.5Z" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+
+                </div>  -->
             </div>
         </div>
     </section>
@@ -283,8 +307,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         <div class="container">
             <div class="title">
                 <div class="team_title">
-                    <h1>Discover the creative minds  </h1>
-                    <h2>fuelling our studio</h2>
+                    <h1>Discover the creative minds  </h1>
+                    <h2>fuelling our studio</h2>
                 </div>
                 <a href="">Join a team</a>
             </div>
@@ -739,17 +763,25 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <script>
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    new Splide('.collaborations_galleries .splide', {
+        type: 'loop',
+        perMove: 1,
+        arrows: false,
+        pagination: false,
+        autoWidth: true,
+        gap: '24px', 
+        breakpoints: {
+            900: {
+                gap: '16px', 
+            },
+            901: {
+                gap: '24px', 
+            },
+        },
+    }).mount();
+});
 
-        document.addEventListener('DOMContentLoaded', function () {
-                new Splide('.collaborations_galleries .splide', {
-                    type     : 'loop',   
-                    perMove  : 1,  
-                    arrows:false, 
-                    pagination:false,
-                    autoWidth: true,     
-                    gap      : '24px',   
-                }).mount();
-            });
 
 
         $(function(){
@@ -1169,6 +1201,21 @@ gsap.to(".partners .item", {
 
 
 
+// transform: translate(-246vw, -415vh) scale(140);
+
+        
+
+         gsap.to('.clipped',{
+            width:'6200px',
+            height:'8000px',
+            duration:1,
+            scrollTrigger:{
+                trigger:'.visionary_content',
+                start: 'top 300px', 
+                end: 'bottom bottom', 
+                scrub:1
+            }
+        })
 
 
   
